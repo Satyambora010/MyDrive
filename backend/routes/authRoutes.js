@@ -141,7 +141,7 @@ router.post('/register', registerUser);
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "User not found" or "Invalid password"
+ *                   example: "User not found or Invalid password"
  *       500:
  *         description: Internal server error
  *         content:
