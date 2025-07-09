@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Header = () => {
                 <div className="flex items-center gap-2 mr-4">
                     <button onClick={() => navigate("/uploadFile")} className="mr-4 bg-white text-blue-400 px-4 py-2 rounded-md">Upload File</button>
                     <button onClick={() => {
-                        axios.post("http://localhost:3001/api/auth/logout", {}, {
+                        axios.post(API_ENDPOINTS.LOGOUT, {}, {
                             withCredentials: true
                         })
                         .then((res) => {

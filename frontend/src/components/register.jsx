@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 import UserContext from "./userContext";
 
 const Register = () => {
@@ -12,7 +13,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/api/auth/register", { username, email, password },{
+        axios.post(API_ENDPOINTS.REGISTER, { username, email, password },{
             withCredentials: true
         })
             .then((res) => {

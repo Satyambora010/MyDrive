@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api";
 import UserContext from "./userContext";
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/api/auth/login", { email, password },{
+        axios.post(API_ENDPOINTS.LOGIN, { email, password },{
             withCredentials: true
         })
             .then((res) => {

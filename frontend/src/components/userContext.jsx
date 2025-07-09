@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { API_ENDPOINTS } from "../config/api";
 
 const UserContext = createContext();
 
@@ -8,7 +9,7 @@ export const UserProvider = ({ children }) => {
     const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/auth/getUser", {
+        axios.get(API_ENDPOINTS.GET_USER, {
             withCredentials: true,
         })
         .then((res) => {

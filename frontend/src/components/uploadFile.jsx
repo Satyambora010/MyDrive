@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { API_ENDPOINTS } from "../config/api";
 import Header from "./header";
 
 const UploadFile = () => {
@@ -19,7 +20,7 @@ const UploadFile = () => {
         const formData = new FormData();
         formData.append("tags", tags);
         formData.append("file", file);
-        axios.post("http://localhost:3001/api/files/upload", formData, {
+        axios.post(API_ENDPOINTS.UPLOAD_FILE, formData, {
             withCredentials: true
         })
         .then((res) => {
