@@ -23,9 +23,7 @@ app.use(cookieParser());
 // CORS configuration for production
 const allowedOrigins = [
     'http://localhost:5173',
-    'http://localhost:3000',
-    'https://mydrive-app.vercel.app', // Update this with your actual frontend URL
-    'https://mydrive-frontend.vercel.app' // Alternative URL
+    'https://my-drive-dusky.vercel.app'
 ];
 
 app.use(cors({
