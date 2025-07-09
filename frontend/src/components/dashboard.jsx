@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../config/api.js";
 import Header from "./header";
 import UserContext from "./userContext";
 
@@ -18,7 +19,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (user) {
-        axios.get(`http://localhost:3001/api/files/get-files/${user._id}`, {
+        axios.get(`${API_ENDPOINTS.GET_FILES}/${user._id}`, {
             withCredentials: true
         })
         .then((res) => {
@@ -31,7 +32,7 @@ const Dashboard = () => {
     }, [user]);
 
     const handleSearch = () => {
-        axios.get(`http://localhost:3001/api/files/search-files/${user._id}`, {
+        axios.get(`${API_ENDPOINTS.SEARCH_FILES}/${user._id}`, {
             params: {
                 query: searchQuery
             },
@@ -45,7 +46,7 @@ const Dashboard = () => {
     }
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3001/api/files/delete-file/${id}`, {
+        axios.delete(`${API_ENDPOINTS.DELETE_FILE}/${id}`, {
             withCredentials: true
         })
         .then((res) => {
@@ -56,7 +57,7 @@ const Dashboard = () => {
     }
 
     const handleView = (url, id) => {
-        axios.put(`http://localhost:3001/api/files/increment-view-count/${id}`, {}, {
+        axios.put(`${API_ENDPOINTS.INCREMENT_VIEW}/${id}`, {}, {
             withCredentials: true
         })
         .then((res) => {
